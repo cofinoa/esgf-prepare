@@ -503,3 +503,12 @@ NO_CLEANUP_HELP = \
     instances run with the same output directory.
     
     """
+
+RENAME_DESTINATION_HELP = \
+    """
+    Rename files on destination output directory. |n
+    Default it's copy/link/move files with same name as source on destination.\n  
+    The filename_format_dst entry in cfg file will be used as format string.|n
+    The format may include facets names like %(facet)s|n
+    
+    """

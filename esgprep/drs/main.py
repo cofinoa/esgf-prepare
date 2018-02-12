@@ -10,7 +10,7 @@
 import itertools
 import logging
 
-from ESGConfigParser.custom_exceptions import NoConfigKey
+from ESGConfigParser.custom_exceptions import NoConfigKey, NoConfigOption
 
 from constants import *
 from context import ProcessingContext
@@ -60,6 +60,15 @@ def process(collector_input):
                         set_keys=ctx.set_keys)
         # Get parts of DRS path
         parts = fh.get_drs_parts(ctx.facets)
+        
+        # Parse destination file format
+        if ctx.rename_destination:
+            try: 
+                #fh.set_filename_dst(ctx.cfg.get('filename_dst_format'))
+                fh.filename = ctx.cfg.get('filename_dst_format') % fh.attributes 
+            except NoConfigOption:
+                logging.warning('No filename_dst_format entry in config file. Ignoring --rename-destination')
+        
         # Instantiate file DRS path handler
         fph = DRSPath(parts)
         # If a latest version already exists make some checks FIRST to stop files to not process

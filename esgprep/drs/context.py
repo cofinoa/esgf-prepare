@@ -72,6 +72,7 @@ class ProcessingContext(object):
             self.commands_file = None
         if self.overwrite_commands_file and not self.commands_file:
             print '--overwrite-commands-file ignored'
+        self.rename_destination = args.rename_destination
 
     def __enter__(self):
         # Get checksum client

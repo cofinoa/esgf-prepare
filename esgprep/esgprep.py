@@ -298,6 +298,11 @@ def get_args():
         type=int,
         default=4,
         help=MAX_THREADS_HELP)
+    drs.add_argument(
+        '--rename-destination',
+        action='store_true',
+        default=False,
+        help=RENAME_DESTINATION_HELP)
 
     ###################################
     # Subparser for "esgprep mapfile" #
