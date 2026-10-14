@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>esgprep._utils.path &mdash; esgprep 3.2.0 documentation</title>
+  <title>esgprep._utils.path &mdash; esgprep 3.4.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=4f6ddb47"></script>
+      <script src="../../../_static/documentation_options.js?v=b0e360d0"></script>
       <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -403,7 +403,12 @@
             <span class="k">return</span> <span class="kc">None</span>
 
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">Print</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"dataset_id: Error generating dataset_id for </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">esgprep._utils.cv</span><span class="w"> </span><span class="kn">import</span> <span class="n">diagnose_cv_error</span><span class="p">,</span> <span class="n">is_cv_database_error</span>
+
+        <span class="k">if</span> <span class="n">is_cv_database_error</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+            <span class="n">Print</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">diagnose_cv_error</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">e</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Print</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"dataset_id: Error generating dataset_id for </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
 </pre></div>

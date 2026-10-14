@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code documentation &mdash; esgprep 3.2.0 documentation</title>
+  <title>Code documentation &mdash; esgprep 3.4.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=4f6ddb47"></script>
+      <script src="_static/documentation_options.js?v=b0e360d0"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
@@ -73,6 +73,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#esgmapfile">esgmapfile</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Main module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#esgprep.esgmapfile.non_negative_int"><code class="docutils literal notranslate"><span class="pre">non_negative_int()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#esgprep.esgmapfile.get_args"><code class="docutils literal notranslate"><span class="pre">get_args()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#esgprep.esgmapfile.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
@@ -108,6 +109,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#esgprep._exceptions.InconsistentDRSPath"><code class="docutils literal notranslate"><span class="pre">InconsistentDRSPath</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#esgprep._exceptions.NoProjectCodeFound"><code class="docutils literal notranslate"><span class="pre">NoProjectCodeFound</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#esgprep._exceptions.MissingCVdata"><code class="docutils literal notranslate"><span class="pre">MissingCVdata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esgprep._exceptions.CVDatabaseError"><code class="docutils literal notranslate"><span class="pre">CVDatabaseError</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-esgprep._handlers">Handlers</a></li>
@@ -308,6 +310,12 @@
 </dd>
 </dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="esgprep.esgmapfile.non_negative_int">
+<span class="sig-prename descclassname"><span class="pre">esgprep.esgmapfile.</span></span><span class="sig-name descname"><span class="pre">non_negative_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esgprep/esgmapfile.html#non_negative_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esgprep.esgmapfile.non_negative_int" title="Link to this definition"></a></dt>
+<dd><p>Argparse type accepting only integers greater than or equal to zero.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="esgprep.esgmapfile.get_args">
 <span class="sig-prename descclassname"><span class="pre">esgprep.esgmapfile.</span></span><span class="sig-name descname"><span class="pre">get_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/esgprep/esgmapfile.html#get_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esgprep.esgmapfile.get_args" title="Link to this definition"></a></dt>
 <dd><p>Returns parsed command-line arguments.</p>
@@ -500,6 +508,17 @@ indicating to match (i.e., include) or non-match (i.e., exclude) the correspondi
 <dt class="sig sig-object py" id="esgprep._exceptions.MissingCVdata">
 <span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">esgprep._exceptions.</span></span><span class="sig-name descname"><span class="pre">MissingCVdata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">authority</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esgprep/_exceptions.html#MissingCVdata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esgprep._exceptions.MissingCVdata" title="Link to this definition"></a></dt>
 <dd><p>Raised when CV data is missing for an authority/project.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="esgprep._exceptions.CVDatabaseError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">esgprep._exceptions.</span></span><span class="sig-name descname"><span class="pre">CVDatabaseError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duplicates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esgprep/_exceptions.html#CVDatabaseError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esgprep._exceptions.CVDatabaseError" title="Link to this definition"></a></dt>
+<dd><p>Raised when the esgvoc controlled vocabulary database fails, independently of the processed file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="esgprep._exceptions.CVDatabaseError.MAX_DUPLICATES">
+<span class="sig-name descname"><span class="pre">MAX_DUPLICATES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></span><a class="headerlink" href="#esgprep._exceptions.CVDatabaseError.MAX_DUPLICATES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -940,7 +959,7 @@ Default is no color (i.e., restore original color)</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="esgprep._utils.print.Print.BUFFER">
-<span class="sig-name descname"><span class="pre">BUFFER</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Synchronized</span> <span class="pre">wrapper</span> <span class="pre">for</span> <span class="pre">c_wchar_p(140144239058800)&gt;</span></span><a class="headerlink" href="#esgprep._utils.print.Print.BUFFER" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">BUFFER</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Synchronized</span> <span class="pre">wrapper</span> <span class="pre">for</span> <span class="pre">c_wchar_p(140630518062896)&gt;</span></span><a class="headerlink" href="#esgprep._utils.print.Print.BUFFER" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
